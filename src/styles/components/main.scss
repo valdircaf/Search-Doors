@@ -1,0 +1,429 @@
+@use '../variables';
+@use '../mixins.scss';
+
+@keyframes animationFirstButton {
+  0%{
+    background-color: transparent;
+  }
+  10%{
+    background-image: linear-gradient(variables.$primary-color 10%, transparent 90%);
+  }
+  20%{
+    background-image: linear-gradient(variables.$primary-color 20%, transparent 80%);
+  }
+  30%{
+    background-image: linear-gradient(variables.$primary-color 30%, transparent 70%);
+  }
+  40%{
+    background-image: linear-gradient(variables.$primary-color 40%, transparent 60%);
+  }
+  50%{
+    background-image: linear-gradient(variables.$primary-color 50%, transparent 50%);
+  }
+  60%{
+    background-image: linear-gradient(variables.$primary-color 60%, transparent 40%);
+  }
+  70%{
+    background-image: linear-gradient(variables.$primary-color 70%, transparent 30%);
+  }
+  80%{
+    background-image: linear-gradient(variables.$primary-color 80%, transparent 20%);
+  }
+  90%{
+    background-image: linear-gradient(variables.$primary-color 90%, transparent 10%);
+  }
+  100%{
+    background-color: variables.$primary-color;
+  }
+}
+
+@keyframes activeButton{
+  0%{
+    fill: variables.$span-color;
+    transform: translateX(-3px);
+  }
+  10%{
+    fill: variables.$span-color;
+    transform: translateX(3px);
+  }
+  20%{
+    fill: variables.$span-color;
+    transform: translateX(-3px);
+  }
+  30%{
+    fill: variables.$span-color;
+    transform: translateX(3px);
+  }
+  40%{
+    fill: variables.$span-color;
+    transform: translateX(-3px);
+  }
+  50%{
+    fill: variables.$span-color;
+    transform: translateX(3px);
+  }
+  100%{
+    fill: variables.$span-color;
+    transform: translateX(0);
+
+  }
+}
+
+@keyframes notAvaialableButton{
+  0%{
+    fill: #ff0000bd;
+    transform: translateX(-3px);
+  }
+  10%{
+    fill: #ff0000bd;
+    transform: translateX(3px);
+  }
+  20%{
+    fill: #ff0000bd;
+    transform: translateX(-3px);
+  }
+  30%{
+    fill: #ff0000bd;
+    transform: translateX(3px);
+  }
+  40%{
+    fill: #ff0000bd;
+    transform: translateX(-3px);
+  }
+  50%{
+    fill: #ff0000bd;
+    transform: translateX(3px);
+  }
+  100%{
+    fill: #ff0000bd;
+    transform: translateX(0);
+
+  }
+}
+
+@keyframes divAnimation{
+  0%{
+    transform: translateX(0);
+    transform: rotate(-140deg);
+  }
+  10%{
+    transform: translateX(1px);
+  }
+  11%{
+    transform: translateX(2px);
+  }
+  12%{
+    transform: translateX(3px);
+  }
+  13%{
+    transform: translateX(4px);
+  }
+  14%{
+    transform: translateX(5px);
+  }
+  15%{
+    transform: translateX(6px);
+  }
+  16%{
+    transform: translateX(7px);
+  }
+  17%{
+    transform: translateX(8px);
+  }
+  18%{
+    transform: translateX(9px);
+  }
+  19%{
+    transform: translateX(10px);
+  }
+  20%{
+    transform: translateX(11px);
+  }
+  21%{
+    transform: translateX(10px);
+  }
+  22%{
+    transform: translateX(9px);
+  }
+  23%{
+    transform: translateX(8px);
+  }
+  24%{
+    transform: translateX(7px);
+  }
+  25%{
+    transform: translateX(6px);
+  }
+  26%{
+    transform: translateX(5px);
+  }
+  27%{
+    transform: translateX(4px);
+  }
+  28%{
+    transform: translateX(3px);
+  }
+  29%{
+    transform: translateX(2px);
+  }
+  30%{
+    transform: translateX(1px);
+  }
+  31%{
+    transform: translateX(0);
+  }
+  32%{
+    transform: translateX(-1px);
+  }
+  33%{
+    transform: translateX(-2px);
+  }
+  34%{
+    transform: translateX(-3px);
+  }
+  35%{
+    transform: translateX(-4px);
+  }
+  36%{
+    transform: translateX(-5px);
+  }
+  37%{
+    transform: translateX(-6px);
+  }
+  38%{
+    transform: translateX(-7px);
+  }
+  39%{
+    transform: translateX(-8px);
+  }
+  40%{
+    transform: translateX(-9px);
+  }
+  50%{
+    transform: translateX(-10px);
+  }
+  100%{
+    transform: rotate(140deg);
+  }
+
+}
+
+.container{
+  display: flex;
+  margin: 0 auto;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  scroll-behavior: smooth;
+
+  @include mixins.tablet{
+    width: 100%;
+  }
+  .main{
+    font-family: variables.$font;
+    background-color: variables.$background-color;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    height: 80%;
+    width: 50rem;
+    //Media query for notebook
+    @include mixins.notebook{
+      width: 50%;
+    }
+    //Media query for tablet
+    @include mixins.tablet{
+      width: 100%;
+      height: 100%;
+      gap: 5rem;
+    }
+    //Media query for mobile
+    @include mixins.mobile{
+      gap: 2rem;
+    }
+
+
+    .main-title{
+      //Media query for notebook
+      @include mixins.notebook{
+        font-size: 56px;
+      }
+      //Second media query for notebook
+      @include mixins.notebook-2{
+        font-size: 48px;
+      }
+      //Media query for tablet
+      @include mixins.tablet{
+        font-size: 64px;
+        padding-left: 0;
+        text-align: center;
+      }
+      //Media query for mobile
+      @include mixins.mobile{
+        font-size: 44px;
+        padding-left: 0;
+        width: 90%;
+        margin: 0 auto;
+      }
+      line-height: 80px;
+      padding-left: 2rem;
+      font-family: variables.$font-title;
+      text-transform: uppercase;
+      font-size: 72px;
+      letter-spacing: -3px;
+      span{
+        color: variables.$primary-color;
+      }
+    }
+    .main-btn-paragraph{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      @include mixins.tablet{
+        gap: 1rem;
+      }
+      .animation{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+        div{
+          animation: divAnimation 3s ease-in-out infinite;
+          width: 30px;
+          height: 30px;
+          background-color: variables.$black-color;
+          border-radius: .6rem;
+        }
+      }
+      .btn-search{
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        .input{
+          width: 15rem;
+          height: 3rem;
+          border-radius: 10px;
+          border: 2px solid variables.$primary-color;
+          background-color: variables.$background-color;
+          text-transform: uppercase;
+          font-weight: 800;
+          color: variables.$primary-color;
+          font-family: variables.$font;
+          text-align: center;
+          &::placeholder{
+            text-align: center;
+            color: variables.$paragraph-color;
+            text-transform: lowercase;
+            font-weight: 500;
+          }
+        }
+
+        .activeButton{
+          background-color: transparent;
+          border: none;
+          transition: .2s;
+          animation: activeButton .5s;
+          &:hover{
+            transition: .2s;
+            transform: scale(1.2);
+          }
+          svg{
+            fill: variables.$primary-color;
+            cursor: pointer;
+            font-size: 2rem;
+            animation: activeButton .5s;
+          }
+
+        }
+        .second-button{
+          background-color: transparent;
+          border: none;
+          transition: .2s;
+          &:hover{
+            transform: scale(1.1);
+            transition: .2s;
+            animation: hoverButton infinite ease-in;
+          }
+          svg{
+            fill: variables.$primary-color;
+            font-size: 2rem;
+            cursor: pointer;
+            animation: notAvaialableButton .5s;
+          }
+
+        }
+      }
+      .paragraph{
+        color: variables.$paragraph-color;
+        font-weight: 500;
+        width: 48%;
+        text-align: center;
+        //Media query for notebook
+        @include mixins.notebook{
+          font-size: 14px;
+        }
+        //Media query for tablet
+        @include mixins.tablet{
+          width: 100%;
+          text-align: center;
+          font-weight: 600;
+        }
+      }
+      .hide{
+        display: none;
+      }
+      .isAvailable{
+        width: 50%;
+        color: variables.$background-color;
+        text-align: center;
+        background-color: variables.$black-color;
+        font-weight: 400;
+        border-radius: .6rem;
+        p{
+          svg{
+            font-size: 2rem;
+            fill: variables.$primary-color;
+          }
+        }
+      }
+    }
+    .footer{
+      font-weight: 300;
+      text-align: center;
+      color: variables.$black-color;
+      //Media query for tablet
+      @include mixins.tablet{
+        width: 100%;
+        font-size: 13px;
+        font-weight: 400;
+        color: variables.$black-color;
+      }
+    }
+  }
+  .image{
+    //Media query for notebook
+    @include mixins.notebook{
+      height: 80%;
+      width: 50%;
+    }
+    //Media query for tablet
+    @include mixins.tablet{
+      display: none;
+    }
+    height: 80%;
+    img{
+      //Media query for notebook
+      @include mixins.notebook{
+        width: 100%;
+      }
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+
+}

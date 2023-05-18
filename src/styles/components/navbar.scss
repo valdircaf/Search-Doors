@@ -1,0 +1,18 @@
+@use '../variables';
+
+.main-section{
+  background-color: variables.$background-color;
+  font-family: variables.$font;
+  width: 100%;
+  height: 4.18rem;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  gap: 3rem;
+  border-radius: .6rem;
+  img{
+    width: 11rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+}

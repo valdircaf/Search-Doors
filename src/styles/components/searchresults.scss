@@ -1,0 +1,97 @@
+@use "../variables";
+@use '../mixins.scss';
+
+
+.hide{
+  display: none;
+}
+
+.search-results{
+  background-color: variables.$background-color;
+  width: 80%;
+  height: 53.68rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2.6rem;
+  font-family: variables.$font;
+  border-radius: .6rem;
+  @include mixins.tablet{
+    width: 100%;
+    border-top: 1px solid variables.$black-color;
+  }
+  .carousel{
+    width: 100%;
+    overflow: hidden;
+    .inner{
+      max-width: 56.25rem;
+      cursor: grab;
+      display: flex;
+      gap: 1rem;
+      height: 33.25rem;
+      margin-bottom: 5rem;
+      h3{
+        font-size: 1.5rem;
+        width: 100%;
+        text-align: center;
+      }
+      .response{
+        div{
+          width: 24.81rem;
+          height: 31.25rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          background-color: #161f700d;
+          align-items: center;
+          border-radius: .6rem;
+          box-shadow: 1px 7px 5px rgba(0,0,0, .5);
+          img{
+            width: 12.5rem;
+            pointer-events: none;
+          }
+          h1{
+            color: variables.$primary-color;
+            font-weight: 700;
+          }
+          h2{
+            font-size: 1.5rem;
+            color: variables.$black-color;
+          }
+          p{
+            color: variables.$paragraph-color;
+            font-weight: 25rem;
+          }
+        }
+
+      }
+    }
+  }
+
+  .btn-back{
+    button{
+      border: 2px solid variables.$primary-color;
+      color: variables.$primary-color;
+      background-color: variables.$background-color;
+      width: 15.18rem;
+      height: 3rem;
+      border-radius: .6rem;
+      font-family: variables.$font;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 2s;
+      &:hover{
+        animation: animationButtonBack .1s;
+        box-shadow: 0px 5px 10px #004cff;
+        transition: .1s;
+      }
+    }
+    margin-bottom: 5rem;
+  }
+  .footer{
+    color: variables.$black-color;
+    font-weight: 400;
+    text-align: center;
+  }
+}
