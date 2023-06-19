@@ -1,429 +1,337 @@
 @use '../variables';
-@use '../mixins.scss';
+@use "../mixins.scss";
 
-@keyframes animationFirstButton {
+@keyframes showLogo {
   0%{
-    background-color: transparent;
-  }
-  10%{
-    background-image: linear-gradient(variables.$primary-color 10%, transparent 90%);
-  }
-  20%{
-    background-image: linear-gradient(variables.$primary-color 20%, transparent 80%);
-  }
-  30%{
-    background-image: linear-gradient(variables.$primary-color 30%, transparent 70%);
-  }
-  40%{
-    background-image: linear-gradient(variables.$primary-color 40%, transparent 60%);
-  }
-  50%{
-    background-image: linear-gradient(variables.$primary-color 50%, transparent 50%);
-  }
-  60%{
-    background-image: linear-gradient(variables.$primary-color 60%, transparent 40%);
-  }
-  70%{
-    background-image: linear-gradient(variables.$primary-color 70%, transparent 30%);
-  }
-  80%{
-    background-image: linear-gradient(variables.$primary-color 80%, transparent 20%);
-  }
-  90%{
-    background-image: linear-gradient(variables.$primary-color 90%, transparent 10%);
+    opacity: 0;
+    bottom: -70px;
+    right: -40px;
   }
   100%{
-    background-color: variables.$primary-color;
+    opacity: 1;
+    bottom: -70px;
+    right: -70px;
   }
 }
 
-@keyframes activeButton{
-  0%{
-    fill: variables.$span-color;
-    transform: translateX(-3px);
+@keyframes showContent {
+  0% {
+    transform: translateX(-100px);
   }
-  10%{
-    fill: variables.$span-color;
-    transform: translateX(3px);
-  }
-  20%{
-    fill: variables.$span-color;
-    transform: translateX(-3px);
-  }
-  30%{
-    fill: variables.$span-color;
-    transform: translateX(3px);
-  }
-  40%{
-    fill: variables.$span-color;
-    transform: translateX(-3px);
-  }
-  50%{
-    fill: variables.$span-color;
-    transform: translateX(3px);
-  }
-  100%{
-    fill: variables.$span-color;
+  100% {
     transform: translateX(0);
-
   }
 }
 
-@keyframes notAvaialableButton{
-  0%{
-    fill: #ff0000bd;
-    transform: translateX(-3px);
+@keyframes showChat {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
   }
-  10%{
-    fill: #ff0000bd;
-    transform: translateX(3px);
-  }
-  20%{
-    fill: #ff0000bd;
-    transform: translateX(-3px);
-  }
-  30%{
-    fill: #ff0000bd;
-    transform: translateX(3px);
-  }
-  40%{
-    fill: #ff0000bd;
-    transform: translateX(-3px);
-  }
-  50%{
-    fill: #ff0000bd;
-    transform: translateX(3px);
-  }
-  100%{
-    fill: #ff0000bd;
+  100% {
+    opacity: 1;
     transform: translateX(0);
-
   }
 }
 
-@keyframes divAnimation{
-  0%{
-    transform: translateX(0);
-    transform: rotate(-140deg);
+@keyframes rotateImage {
+  0% {
+    transform: rotate(30deg)
   }
-  10%{
-    transform: translateX(1px);
+  10% {
+    transform: rotate(29deg);
   }
-  11%{
-    transform: translateX(2px);
+  11% {
+    transform: rotate(28deg);
   }
-  12%{
-    transform: translateX(3px);
+  12% {
+    transform: rotate(27deg);
   }
-  13%{
-    transform: translateX(4px);
+  13% {
+    transform: rotate(26deg);
   }
-  14%{
-    transform: translateX(5px);
+  14% {
+    transform: rotate(25deg);
   }
-  15%{
-    transform: translateX(6px);
+  15% {
+    transform: rotate(24deg);
   }
-  16%{
-    transform: translateX(7px);
+  16% {
+    transform: rotate(23deg);
   }
-  17%{
-    transform: translateX(8px);
+  17% {
+    transform: rotate(22deg);
   }
-  18%{
-    transform: translateX(9px);
+  18% {
+    transform: rotate(21deg);
   }
-  19%{
-    transform: translateX(10px);
+  19% {
+    transform: rotate(20deg);
   }
-  20%{
-    transform: translateX(11px);
+  20% {
+    transform: rotate(19deg);
   }
-  21%{
-    transform: translateX(10px);
+  21% {
+    transform: rotate(18deg);
   }
-  22%{
-    transform: translateX(9px);
+  22% {
+    transform: rotate(17deg);
   }
-  23%{
-    transform: translateX(8px);
+  23% {
+    transform: rotate(16deg);
   }
-  24%{
-    transform: translateX(7px);
+  24% {
+    transform: rotate(15deg);
   }
-  25%{
-    transform: translateX(6px);
+  25% {
+    transform: rotate(14deg);
   }
-  26%{
-    transform: translateX(5px);
+  26% {
+    transform: rotate(13deg);
   }
-  27%{
-    transform: translateX(4px);
+  27% {
+    transform: rotate(12deg);
   }
-  28%{
-    transform: translateX(3px);
+  28% {
+    transform: rotate(11deg);
   }
-  29%{
-    transform: translateX(2px);
+  29% {
+    transform: rotate(10deg);
   }
-  30%{
-    transform: translateX(1px);
+  30% {
+    transform: rotate(9deg);
   }
-  31%{
-    transform: translateX(0);
+  31% {
+    transform: rotate(8deg);
   }
-  32%{
-    transform: translateX(-1px);
+  32% {
+    transform: rotate(7deg);
   }
-  33%{
-    transform: translateX(-2px);
+  33% {
+    transform: rotate(6deg);
   }
-  34%{
-    transform: translateX(-3px);
+  34% {
+    transform: rotate(5deg);
   }
-  35%{
-    transform: translateX(-4px);
+  35% {
+    transform: rotate(4deg);
   }
-  36%{
-    transform: translateX(-5px);
+  36% {
+    transform: rotate(3deg);
   }
-  37%{
-    transform: translateX(-6px);
+  37% {
+    transform: rotate(2deg);
   }
-  38%{
-    transform: translateX(-7px);
+  38% {
+    transform: rotate(1deg);
   }
-  39%{
-    transform: translateX(-8px);
+  39% {
+    transform: rotate(0);
   }
   40%{
-    transform: translateX(-9px);
+    transform: rotate(0);
   }
-  50%{
-    transform: translateX(-10px);
+  50% {
+    transform: rotate(5deg);
+  }
+  60% {
+    transform: rotate(0);
   }
   100%{
-    transform: rotate(140deg);
+    transform: rotate(0);
   }
-
 }
 
-.container{
-  display: flex;
-  margin: 0 auto;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  scroll-behavior: smooth;
 
+
+.hide{
+  display: none;
+}
+
+.main-container{
+  font-family: variables.$main-fontStyle;
+  position: absolute;
+  left: 9%;
+  top: 20%;
+  height: 100%;
+  @include mixins.notebook{
+    left: 9%;
+  }
   @include mixins.tablet{
-    width: 100%;
+    top: 30%;
   }
-  .main{
-    font-family: variables.$font;
-    background-color: variables.$background-color;
-    border-radius: 10px;
+  @include mixins.mobile{
+    left: 7%;
+  }
+  .navbar{
+    position: fixed;
+    top: 20px;
+
+  }
+  .chatWpp{
+    position: fixed;
+    right: 100px;
+    animation: showChat 5s;
+    @include mixins.notebook{
+      img{
+        width: 600px;
+        height: 530px;
+      }
+    }
+    @include mixins.notebook-2{
+      top: 230px;
+      img{
+        width: 500px;
+        height: 430px;
+      }
+    }
+    @include mixins.notebook-3{
+      display: none;
+      img{
+        width: 500px;
+        height: 430px;
+      }
+    }
+    @include mixins.heightAdjust1{
+      img{
+        width: 500px;
+      }
+    }
+    @include mixins.heightAdjust2{
+      top: 130px;
+      img{
+        width: 500px;
+      }
+    }
+
+  }
+
+  .content{
     display: flex;
     flex-direction: column;
-    gap: 2em;
-    height: 80%;
-    width: 50rem;
-    //Media query for notebook
-    @include mixins.notebook{
-      width: 50%;
-    }
-    //Media query for tablet
-    @include mixins.tablet{
-      width: 100%;
-      height: 100%;
-      gap: 5rem;
-    }
-    //Media query for mobile
-    @include mixins.mobile{
-      gap: 2rem;
-    }
-
-
-    .main-title{
-      //Media query for notebook
+    gap: 40px;
+	  animation: showContent 1s;
+    img{
+      display: none;
+      width: 500px;
+      animation: rotateImage 2s;
       @include mixins.notebook{
-        font-size: 56px;
       }
-      //Second media query for notebook
-      @include mixins.notebook-2{
-        font-size: 48px;
-      }
-      //Media query for tablet
+    }
+
+    h1{
+      font-size: 48px;
+      color: variables.$title-color;
+      font-weight: 800;
+      margin-bottom: 24px;
       @include mixins.tablet{
-        font-size: 64px;
-        padding-left: 0;
-        text-align: center;
+        font-size: 40px;
       }
-      //Media query for mobile
-      @include mixins.mobile{
-        font-size: 44px;
-        padding-left: 0;
-        width: 90%;
-        margin: 0 auto;
+      @include mixins.heightAdjust1{
+        font-size: 40px;
       }
-      line-height: 80px;
-      padding-left: 2rem;
-      font-family: variables.$font-title;
-      text-transform: uppercase;
-      font-size: 72px;
-      letter-spacing: -3px;
+    }
+    h2{
+      color: variables.$paragraph-color;
+      font-weight: 400;
       span{
         color: variables.$primary-color;
+        cursor: pointer;
+      }
+      @include mixins.mobile{
+        font-size: 18px;
       }
     }
-    .main-btn-paragraph{
+    .first-box{
       display: flex;
-      flex-direction: column;
+      height: 60px;
       align-items: center;
-      gap: 2rem;
-      @include mixins.tablet{
-        gap: 1rem;
-      }
-      .animation{
-        width: 100%;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2em;
-        div{
-          animation: divAnimation 3s ease-in-out infinite;
-          width: 30px;
-          height: 30px;
-          background-color: variables.$black-color;
-          border-radius: .6rem;
-        }
-      }
-      .btn-search{
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-        .input{
-          width: 15rem;
-          height: 3rem;
-          border-radius: 10px;
-          border: 2px solid variables.$primary-color;
-          background-color: variables.$background-color;
-          text-transform: uppercase;
-          font-weight: 800;
-          color: variables.$primary-color;
-          font-family: variables.$font;
-          text-align: center;
-          &::placeholder{
-            text-align: center;
-            color: variables.$paragraph-color;
-            text-transform: lowercase;
-            font-weight: 500;
-          }
-        }
-
-        .activeButton{
-          background-color: transparent;
-          border: none;
-          transition: .2s;
-          animation: activeButton .5s;
-          &:hover{
-            transition: .2s;
-            transform: scale(1.2);
-          }
-          svg{
-            fill: variables.$primary-color;
-            cursor: pointer;
-            font-size: 2rem;
-            animation: activeButton .5s;
-          }
-
-        }
-        .second-button{
-          background-color: transparent;
-          border: none;
-          transition: .2s;
-          &:hover{
-            transform: scale(1.1);
-            transition: .2s;
-            animation: hoverButton infinite ease-in;
-          }
-          svg{
-            fill: variables.$primary-color;
-            font-size: 2rem;
-            cursor: pointer;
-            animation: notAvaialableButton .5s;
-          }
-
-        }
-      }
-      .paragraph{
-        color: variables.$paragraph-color;
-        font-weight: 500;
-        width: 48%;
-        text-align: center;
-        //Media query for notebook
-        @include mixins.notebook{
-          font-size: 14px;
-        }
-        //Media query for tablet
-        @include mixins.tablet{
-          width: 100%;
-          text-align: center;
-          font-weight: 600;
-        }
-      }
-      .hide{
+      gap: 16px;
+      padding: 16px;
+      transition: all .2s;
+      cursor: pointer;
+      @include mixins.heightAdjust1{
         display: none;
       }
-      .isAvailable{
-        width: 50%;
-        color: variables.$background-color;
-        text-align: center;
-        background-color: variables.$black-color;
-        font-weight: 400;
-        border-radius: .6rem;
-        p{
-          svg{
-            font-size: 2rem;
-            fill: variables.$primary-color;
-          }
+      &:hover{
+        transition: all .2s;
+        transform: scale(1.1);
+      }
+      svg{
+        fill: variables.$green-color;
+        @include mixins.notebook{
+          font-size: 16px;
         }
       }
-    }
-    .footer{
+      background-color: variables.$main-boxColor;
+      color: #FFF;
       font-weight: 300;
-      text-align: center;
-      color: variables.$black-color;
-      //Media query for tablet
-      @include mixins.tablet{
-        width: 100%;
-        font-size: 13px;
+      font-size: 16px;
+      @include mixins.notebook{
+        width: 400px;
+        font-size: 12px;
         font-weight: 400;
-        color: variables.$black-color;
+      }
+      @include mixins.mobile{
+        width: 300px;
+        font-size: 11px;
+      }
+    }
+    input{
+      border: none;
+      height: 73px;
+      border-radius: 5px;
+      background-color: variables.$primary-color;
+      color: #FFF;
+      outline: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 300;
+      &::placeholder{
+        color: #FFF;
+        font-weight: 300;
+        font-family: variables.$main-fontStyle;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      @include mixins.notebook{
+        width: 400px;
+      }
+      @include mixins.mobile{
+        width: 300px;
+
       }
     }
   }
-  .image{
-    //Media query for notebook
-    @include mixins.notebook{
-      height: 80%;
-      width: 50%;
+  .logo{
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    display: none;
+    img{
+      width: 300px;
+      display: block;
+      animation: showLogo .6s;
     }
-    //Media query for tablet
+    @include mixins.notebook{
+      bottom: 20px;
+      z-index: 10;
+    }
     @include mixins.tablet{
       display: none;
     }
-    height: 80%;
+  }
+  .loadPage{
+    background-color: rgba(11, 11, 11, 0.783);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    text-align: center;
     img{
-      //Media query for notebook
-      @include mixins.notebook{
-        width: 100%;
-      }
-      height: 100%;
-      border-radius: 10px;
+      animation: rotateImage 1s infinite;
     }
   }
-
 }

@@ -1,0 +1,58 @@
+@use '../mixins.scss';
+@use '../variables';
+
+.socialMedia-container{
+  display: none;
+  @include mixins.notebook{
+    display: block;
+    position: absolute;
+    right: -10%;
+    top: 10%;
+  }
+
+  .first-line{
+    @include mixins.notebook{
+      background-color: variables.$primary-color;
+      width: 300px;
+      height: 2px;
+      transform: rotate(90deg);
+    }
+
+  }
+  .second-line{
+    @include mixins.notebook{
+      background-color: variables.$primary-color;
+      width: 300px;
+      height: 2px;
+      transform: rotate(90deg);
+      position: relative;
+      right: 0;
+      top: 400px;
+    }
+
+  }
+  .svgs{
+    @include mixins.notebook{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: 138px;
+      top: 170px;
+      gap: 16px;
+    }
+
+    svg{
+      @include mixins.notebook{
+        fill: #FFF;
+        font-size: 24px;
+        transition: all .2s;
+        cursor: pointer;
+        &:hover{
+          transform: scale(1.1);
+          transition: all .2s;
+        }
+      }
+
+    }
+  }
+}

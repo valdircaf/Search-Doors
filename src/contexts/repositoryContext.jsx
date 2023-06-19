@@ -8,46 +8,24 @@ export const NewContext = createContext();
 
 
 export const NewContextProvider = ({children})=>{
-  const [getInputValue, setInputValue] = useState('');
-  const [reqResponse, setResponse] = useState([]);
-  const [counter, setCounter] = useState(1);
-  const [isAvailable, setIsAvailable] = useState(true);
-  const handleInputValue = (e)=> {
-    setInputValue(e.target.value);
-  }
-  const submit = ()=>{
-    requisition();
-    setCounter(counter + 1);
-  }
-
-  const dragScreen = ()=>{
-    if( isAvailable ){
-      window.scrollTo({
-        top: 900,
-        behavior: 'smooth'
-      })
-    };
-  }
-
-
-  const requisition = ()=>{
-    dragScreen();
-    if(getInputValue.toUpperCase() === 'PORTA' || getInputValue.toUpperCase() === 'PORTAS'){
-      const data = axios.get('https://my-json-server.typicode.com/valdircaf/forProject/doors').then(response => setResponse(response.data));
-      setIsAvailable(true);
-    } else if(getInputValue.toUpperCase() === 'FECHADURA' || getInputValue.toUpperCase() === 'FECHADURAS'){
-      const data = axios.get('https://my-json-server.typicode.com/valdircaf/forProject/door_locks').then(response => setResponse(response.data));
-      setIsAvailable(true);
-    // } else if(getInputValue.toUpperCase() === 'TORNEIRA' || getInputValue.toUpperCase() === 'TORNEIRAS'){
-    //   const data = axios.get('https://my-json-server.typicode.com/valdircaf/forProject/faucets').then(response => setResponse(response.data));
-    //   setIsAvailable(true);
-    } else{
-      setIsAvailable(false);
+  const [closePage, setClosePage] = useState(false);
+  const [valueInput, setValueInput] = useState('');
+  const [requisition, setRequisition] = useState([]);
+  const [load, setLoad] = useState(false);
+  const submit = async ()=>{
+    if(valueInput.toUpperCase() === "PORTA" || valueInput.toUpperCase() === "PORTAS"){
+      const data = await axios.get('https://my-json-server.typicode.com/valdircaf/forProject/doors');
+      setRequisition(data.data);
     }
-
+    else if(valueInput.toUpperCase() === "FECHADURA" || valueInput.toUpperCase() === "FECHADURAS"){
+      const data = await axios.get('https://my-json-server.typicode.com/valdircaf/forProject/door_locks');
+      setRequisition(data.data);
+    }
   }
+
+
   return(
-    <NewContext.Provider value={{ handleInputValue, reqResponse, submit, counter, isAvailable, dragScreen}}>
+    <NewContext.Provider value={{setValueInput, submit, requisition, setClosePage, closePage, load, setLoad}}>
       {children}
     </NewContext.Provider>
   )

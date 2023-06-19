@@ -1,76 +1,76 @@
 import React, { useContext } from 'react';
-import { IoArrowForwardCircle } from 'react-icons/io5';
-import { GoAlert } from 'react-icons/go';
-import Navbar from '../components/Navbar';
+import { ImArrowRight } from 'react-icons/im';
 import '../styles/components/main.scss';
-import Image from '../Images/photo-1600368126026-2e996e686f92 1.png';
+import searchImage from '../components/Images/ImageSearch.png';
+import Logo from '../components/Images/Logo.png';
+import Navbar from '../components/Navbar';
 import { NewContext } from '../contexts/repositoryContext';
+import chatwpp from '../components/Images/chatwpp.png';
+import Load from '../components/Load';
 
 export default function Main() {
   const {
-    submit, handleInputValue, isAvailable, dragScreen,
+    setValueInput, submit, setClosePage, closePage, load, setLoad,
   } = useContext(NewContext);
 
   return (
-
-    <section className="container">
-      <section className="main">
+    <section className={closePage ? 'hide' : 'main-container'}>
+      <section className="navbar">
         <Navbar />
-
-        <section className="main-title">
-          <h1>
-            os melhores produtos com os melhores
-            <span> preços</span>
-            !
-          </h1>
-        </section>
-
-        <section className="main-btn-paragraph">
-          <div className="btn-search">
-            <input type="text" className="input" placeholder="Digite o Produto..." onKeyUp={handleInputValue} />
-            <button
-              type="button"
-              aria-label="Botão de pesquisar"
-              className={isAvailable ? 'activeButton' : 'second-button'}
-              onClick={() => {
-                submit();
-                dragScreen();
-              }}
-            >
-              <IoArrowForwardCircle />
-
-            </button>
-
-          </div>
-
-          <section className={isAvailable ? 'hide' : 'isAvailable'}>
-            <p>
-              <GoAlert />
-              <br />
-              Tente novamente com &quot;Portas&quot;
-              ou &quot;Fechaduras&quot;.
-            </p>
-          </section>
-
-          <div className={isAvailable ? 'paragraph' : 'hide'}>
-            {/* eslint-disable-next-line max-len */}
-            <p>Você pode pesquisar por &quot;Portas&quot; ou &quot;Fechaduras&quot; </p>
-          </div>
-
-          <section className="animation">
-            <div />
-            <div />
-            <div />
-            <div />
-          </section>
-        </section>
-
       </section>
-      <aside className="image">
-        <img src={Image} alt="Imagem de uma porta" />
-      </aside>
-
+      <section className="chatWpp">
+        <img src={chatwpp} alt="doors" />
+      </section>
+      <section className="content">
+        <img src={searchImage} alt="Search" />
+        <h1>
+          A FACILIDADE EM
+          {' '}
+          <br />
+          PESQUISAR
+          {' '}
+          <br />
+          {' '}
+          PREÇOS CHEGOU
+          {' '}
+          <br />
+          {' '}
+          EM VOCÊ!
+        </h1>
+        <h2>
+          Está com dificuldades para formar
+          {' '}
+          <br />
+          {' '}
+          seu preço?
+          <span> Contate-nos</span>
+        </h2>
+        <div className="first-box">
+          <ImArrowRight />
+          <p>Identificamos que seus produtos são: Portas e Fechaduras</p>
+        </div>
+        <input
+          type="text"
+          placeholder='Pesquise por "portas" ou "fechaduras"...'
+          onKeyUp={(e) => {
+            setValueInput(e.target.value);
+            if (e.keyCode === 13) {
+              setLoad(!load);
+              setTimeout(() => {
+                submit();
+                setClosePage(true);
+                setLoad(false);
+              }, [2000]);
+            }
+          }}
+        />
+      </section>
+      <section className="logo">
+        <img src={Logo} alt="Logo" />
+      </section>
+      <section className={load ? 'loadPage' : 'hide'}>
+        <Load />
+      </section>
     </section>
-
   );
 }

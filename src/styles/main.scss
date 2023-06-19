@@ -1,4 +1,5 @@
 @use './variables';
+@use "../styles/mixins.scss";
 
 *{
   margin: 0;
@@ -7,7 +8,17 @@
 }
 
 body{
-  background-color: variables.$black-color;
+  background-image: url('../components/Images/background.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  @include mixins.notebook{
+    background-image: url('../../public/Images/BackgroundNotebook.png');
+  }
+  @include mixins.tablet{
+  background-image: url('../components/Images/background.png');
+    background-color: #010101;
+  }
   &::-webkit-scrollbar {
     width: 17px;
   }

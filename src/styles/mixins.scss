@@ -1,23 +1,42 @@
 @mixin mobile{
-  @media(max-width: 425px){
+  @media(max-width: 450px){
     @content;
   }
 }
 
 @mixin notebook{
-  @media(max-width: 1800px){
+  @media(max-width: 1600px){
     @content;
   }
 }
 
 @mixin notebook-2{
-  @media(max-width: 1600px){
+  @media(max-width: 1378px){
+    @content;
+  }
+}
+
+@mixin notebook-3{
+  @media(max-width: 1149px){
     @content;
   }
 }
 
 @mixin tablet{
   @media(max-width: 1024px){
+    @content;
+  }
+}
+
+
+@mixin heightAdjust1{
+  @media(max-height: 705px){
+    @content;
+  }
+}
+
+@mixin heightAdjust2{
+  @media(max-height: 683px){
     @content;
   }
 }

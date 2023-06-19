@@ -1,97 +1,103 @@
 @use "../variables";
 @use '../mixins.scss';
 
+@keyframes clickButton {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-1px);
+  }
+  40% {
+    transform: translate(1px);
+  }
+  60% {
+    transform: translate(-1px);
+  }
+  80% {
+    transform: translate(1px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes showContainer {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
 
 .hide{
   display: none;
 }
 
-.search-results{
-  background-color: variables.$background-color;
-  width: 80%;
-  height: 53.68rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 2.6rem;
-  font-family: variables.$font;
-  border-radius: .6rem;
-  @include mixins.tablet{
-    width: 100%;
-    border-top: 1px solid variables.$black-color;
-  }
-  .carousel{
-    width: 100%;
+.container-SearchResults{
+  min-width: 100%;
+  height: 100vh;
+  color: #FFF;
+  animation: showContainer 1s;
+  .container-products{
     overflow: hidden;
-    .inner{
-      max-width: 56.25rem;
-      cursor: grab;
+    max-width: 95%;
+  .container-grid{
+    gap: 10px;
+    display: flex;
+    padding: 6em 0 0 4em;
+    cursor: grab;
+    .products-container{
+      text-align: center;
       display: flex;
-      gap: 1rem;
-      height: 33.25rem;
-      margin-bottom: 5rem;
-      h3{
-        font-size: 1.5rem;
-        width: 100%;
-        text-align: center;
-      }
-      .response{
-        div{
-          width: 24.81rem;
-          height: 31.25rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: #161f700d;
-          align-items: center;
-          border-radius: .6rem;
-          box-shadow: 1px 7px 5px rgba(0,0,0, .5);
-          img{
-            width: 12.5rem;
-            pointer-events: none;
-          }
-          h1{
-            color: variables.$primary-color;
-            font-weight: 700;
-          }
-          h2{
-            font-size: 1.5rem;
-            color: variables.$black-color;
-          }
-          p{
-            color: variables.$paragraph-color;
-            font-weight: 25rem;
-          }
+      flex-direction: column;
+      font-family: variables.$main-fontStyle;
+      align-items: center;
+      border-radius: 10px;
+      background-color: variables.$grid-color;
+      .img{
+        pointer-events: none;
+        width: 300px;
+        img{
+          width: 200px;
         }
-
+      }
+      h1{
+        font-size: 24px;
+      }
+      h2{
+        font-size: 13px;
+        color: variables.$paragraph-color;
+      }
+      h3{
+        color: variables.$primary-color;
+        font-weight: 800;
+        font-size: 24px;
+        font-family: variables.$font;
       }
     }
   }
-
-  .btn-back{
-    button{
-      border: 2px solid variables.$primary-color;
-      color: variables.$primary-color;
-      background-color: variables.$background-color;
-      width: 15.18rem;
-      height: 3rem;
-      border-radius: .6rem;
-      font-family: variables.$font;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 2s;
-      &:hover{
-        animation: animationButtonBack .1s;
-        box-shadow: 0px 5px 10px #004cff;
-        transition: .1s;
-      }
-    }
-    margin-bottom: 5rem;
-  }
-  .footer{
-    color: variables.$black-color;
-    font-weight: 400;
+}
+  .btn{
     text-align: center;
+    margin-top: 5%;
+    button{
+      cursor: pointer;
+      width: 250px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: transparent;
+      border: 1px solid variables.$primary-color;
+      color: #FFF;
+      font-family: variables.$main-fontStyle;
+      font-size: 13px;
+      text-align: center;
+      &:hover{
+        animation: clickButton .5s infinite;
+      }
+    }
   }
 }
